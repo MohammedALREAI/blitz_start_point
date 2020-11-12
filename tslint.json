@@ -1,0 +1,35 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-config-prettier",
+    "tslint-plugin-prettier",
+        "tslint-react"
+
+  ],
+  "linterOptions": {
+    "exclude": [
+      "node_modules/**/*.",
+      "db/**/*.",
+      "integrations/**/*."
+      ".blitz/**/*."
+    ]
+  },
+  "rules": {
+    "prettier": true,
+    "no-console": false,
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": true,
+    "interface-name": false,
+    "strict-null-checks": false,
+    "jsx-wrap-multiline": false,
+    "import/no-anonymous-default-export": "error",
+    "import/no-webpack-loader-syntax": "off",
+    "react/react-in-jsx-scope": "off",
+    "jsx-a11y/anchor-is-valid": "off"
+  },
+  "rulesDirectory": [
+        "tslint-plugin-prettier"
+
+  ]
+}
