@@ -1,17 +1,20 @@
-import React, { ReactNode, PropsWithoutRef } from "react"
-import { Form as FinalForm, FormProps as FinalFormProps } from "react-final-form"
-import * as z from "zod"
-export { FORM_ERROR } from "final-form"
+import React, { ReactNode, PropsWithoutRef } from 'react';
+import {
+  Form as FinalForm,
+  FormProps as FinalFormProps
+} from 'react-final-form';
+import * as z from 'zod';
+export { FORM_ERROR } from 'final-form';
 
 type FormProps<S extends z.ZodType<any, any>> = {
   /** All your form fields */
-  children: ReactNode
+  children: ReactNode;
   /** Text to display in the submit button */
-  submitText: string
-  schema?: S
-  onSubmit: FinalFormProps<z.infer<S>>["onSubmit"]
-  initialValues?: FinalFormProps<z.infer<S>>["initialValues"]
-} & Omit<PropsWithoutRef<JSX.IntrinsicElements["form"]>, "onSubmit">
+  submitText: string;
+  schema?: S;
+  onSubmit: FinalFormProps<z.infer<S>>['onSubmit'];
+  initialValues?: FinalFormProps<z.infer<S>>['initialValues'];
+} & Omit<PropsWithoutRef<JSX.IntrinsicElements['form']>, 'onSubmit'>;
 
 export function Form<S extends z.ZodType<any, any>>({
   children,
@@ -25,11 +28,11 @@ export function Form<S extends z.ZodType<any, any>>({
     <FinalForm
       initialValues={initialValues}
       validate={(values) => {
-        if (!schema) return
+        if (!schema) return;
         try {
-          schema.parse(values)
+          schema.parse(values);
         } catch (error) {
-          return error.formErrors.fieldErrors
+          return error.formErrors.fieldErrors;
         }
       }}
       onSubmit={onSubmit}
@@ -39,7 +42,7 @@ export function Form<S extends z.ZodType<any, any>>({
           {children}
 
           {submitError && (
-            <div role="alert" style={{ color: "red" }}>
+            <div role="alert" style={{ color: 'red' }}>
               {submitError}
             </div>
           )}
@@ -56,7 +59,7 @@ export function Form<S extends z.ZodType<any, any>>({
         </form>
       )}
     />
-  )
+  );
 }
 
-export default Form
+export default Form;

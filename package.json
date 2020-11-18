@@ -5,7 +5,8 @@
     "start": "blitz start",
     "prisma:studio": "blitz db studio",
     "build": "blitz build",
-    "lint": "tslint -c tslint.json src/**/*.{ts,tsx} --fix --format --color",
+    "lint": "tslint --project tsconfig.json -c tslint.json src/**/*.{ts,tsx} --fix",
+
     "test": "jest",
     "test:watch": "jest --watch",
     "prisma:migrate": "blitz db migrate",
@@ -18,6 +19,18 @@
   ],
   "prisma": {
     "schema": "db/schema.prisma"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "npx lint",
+      "npx format ",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged "
+    }
   },
   "dependencies": {
     "@prisma/cli": "2.x",

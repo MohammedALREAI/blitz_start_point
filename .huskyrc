@@ -1,7 +1,0 @@
-{
-   "hooks": {
-      "pre-commit": "tsc && lint-staged && pretty-quick --staged",
-      "pre-push": "yarn lint && yarn  test && yarn format"
-    }
-
-}

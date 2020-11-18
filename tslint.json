@@ -10,12 +10,12 @@
     "exclude": [
       "node_modules/**/*.",
       "db/**/*.",
-      "integrations/**/*."
+      "integrations/**/*.",
       ".blitz/**/*."
     ]
   },
   "rules": {
-   
+
     "no-console": false,
     "member-access": false,
     "object-literal-sort-keys": false,
